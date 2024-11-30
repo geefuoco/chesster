@@ -5,9 +5,14 @@
 
 <div
     class={`cell ${output % 2 == 0 ? "dark" : "light"}`}
+    data-dropzone
 >
     {#if !!piece}
-        <img src={piece} alt="chess piece" />
+        <img 
+            src={piece}
+            alt="chess piece"
+            data-draggable
+        />
     {/if}
 </div>
 

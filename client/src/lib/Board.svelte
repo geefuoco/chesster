@@ -1,5 +1,6 @@
 <script lang="ts">
     import Cell from "./Cell.svelte"
+    import { onMount } from "svelte"
     // There is also an option to store all of the chess pieces
     // in the public folder, but there is not any clear indication
     // which way is better
@@ -15,7 +16,16 @@
     import lBishop from "../assets/bishop_light.svg"
     import bRook from "../assets/rook_dark.svg"
     import lRook from "../assets/rook_light.svg"
-
+    import { configureDragAndDrop, isDragging } from "./drag.ts"
+    
+    onMount(function() {
+        configureDragAndDrop(
+            {
+                draggableAttribute: "data-draggable",
+                dropzoneAttribute: "data-dropzone"
+            }
+        )
+    })
 
     function setupBoard() {
         let board = Array(64)
